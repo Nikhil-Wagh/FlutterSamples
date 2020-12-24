@@ -30,6 +30,13 @@ class MyAppPage extends StatefulWidget {
   _MyAppPageState createState() => _MyAppPageState();
 }
 
+const _backgroundColor = Colors.blue;
+
+const _homeIcon = Icon(Icons.home);
+const _searchIcon = Icon(Icons.search);
+const _addIcon = Icon(Icons.add);
+const _settingsIcon = Icon(Icons.settings);
+
 class _MyAppPageState extends State<MyAppPage> {
   int _currentIndex = 0;
 
@@ -51,10 +58,10 @@ class _MyAppPageState extends State<MyAppPage> {
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
         items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home', backgroundColor: Colors.blue),
-          BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Search', backgroundColor: Colors.blue),
-          BottomNavigationBarItem(icon: Icon(Icons.add), label: 'Add', backgroundColor: Colors.blue),
-          BottomNavigationBarItem(icon: Icon(Icons.settings), label: 'Settings', backgroundColor: Colors.blue),
+          BottomNavigationBarItem(icon: _homeIcon, label: 'Home', backgroundColor: _backgroundColor),
+          BottomNavigationBarItem(icon: _searchIcon, label: 'Search', backgroundColor: _backgroundColor),
+          BottomNavigationBarItem(icon: _addIcon, label: 'Add', backgroundColor: _backgroundColor),
+          BottomNavigationBarItem(icon: _settingsIcon, label: 'Settings', backgroundColor: _backgroundColor),
         ],
         onTap: (value) => setState(() {
           _currentIndex = value;
@@ -65,6 +72,8 @@ class _MyAppPageState extends State<MyAppPage> {
 }
 
 const Duration _duration = Duration(seconds: 2);
+
+const TextStyle _textStyle = TextStyle(color: Colors.white, fontSize: 20);
 
 class Home extends StatefulWidget {
   // Maintains state when switched between screens
@@ -91,7 +100,7 @@ class _HomeState extends State<Home> {
         child: Center(
           child: Text(
             'Home: ${widget._counter}',
-            style: TextStyle(color: Colors.white, fontSize: 20),
+            style: _textStyle,
           ),
         ),
       ),
@@ -124,7 +133,7 @@ class _SearchState extends State<Search> {
         child: Center(
           child: Text(
             'Search: $_counter',
-            style: TextStyle(color: Colors.white, fontSize: 20),
+            style: _textStyle,
           ),
         ),
       ),
@@ -148,7 +157,7 @@ class _AddState extends State<Add> {
       child: Center(
         child: Text(
           'Add',
-          style: TextStyle(color: Colors.white, fontSize: 20),
+          style: _textStyle,
         ),
       ),
     );
@@ -176,7 +185,7 @@ class _SettingsState extends State<Settings> {
       child: Center(
         child: Text(
           'Settings',
-          style: TextStyle(color: Colors.white, fontSize: 20),
+          style: _textStyle,
         ),
       ),
     );
